@@ -32,6 +32,10 @@ html {
   scroll-behavior: smooth;
 }
 
+section[id] {
+  scroll-margin-top: 78px;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -293,10 +297,6 @@ body.is-loading {
 .hero-in-delay-2 {
   animation-delay: 2.05s;
 }
-.hero-in-delay-3 {
-  animation-delay: 2.2s;
-}
-
 @keyframes hero-in {
   from {
     opacity: 0.001;
@@ -322,29 +322,197 @@ body.is-loading {
   transform: translateY(0);
 }
 
-/* Hero: giant headline with the pour video as a tall pill behind it */
-.hero-title {
-  font-size: clamp(3.4rem, 13vw, 12.5rem);
-  line-height: 0.92;
-  letter-spacing: -0.01em;
-  color: var(--brown-soft);
-  opacity: 0.88;
-  mix-blend-mode: multiply;
+/* Centered coffee artwork with a staggered entrance. */
+.hero-section {
+  background: var(--cream);
 }
 
-.hero-media {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 0;
-  width: clamp(170px, 28vw, 340px);
-  height: clamp(200px, 36vw, 470px);
-  translate: -50% -50%;
-  border-radius: 999px;
+.hero-center {
+  position: relative;
+  display: flex;
+  min-height: 710px;
+  flex-direction: column;
+  align-items: center;
   overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 50% 52%, rgb(255 249 237 / 0.85), transparent 55%),
+    linear-gradient(90deg,
+      transparent 24.9%, rgb(74 42 28 / 0.07) 25%, transparent 25.1%,
+      transparent 49.9%, rgb(74 42 28 / 0.07) 50%, transparent 50.1%,
+      transparent 74.9%, rgb(74 42 28 / 0.07) 75%, transparent 75.1%);
+}
+
+.hero-poster-title {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin: 0;
+  padding: 58px 12px 0;
+  color: var(--brown);
+  font-family: var(--font-hero), Georgia, serif;
+  font-variation-settings: "SOFT" 20, "WONK" 1;
+  font-size: clamp(1.65rem, 7.5vw, 6rem);
+  font-weight: 700;
+  line-height: 1.03;
+  letter-spacing: -0.045em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.hero-title-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+}
+
+.hero-title-line > span {
+  display: block;
+  white-space: nowrap;
+  animation: hero-poster-rise 0.95s cubic-bezier(0.16, 1, 0.3, 1) 2.1s both;
+}
+
+.hero-word {
+  display: inline-block;
+}
+
+.hero-word + .hero-word {
+  margin-left: 0.16em;
+}
+
+.hero-title-line:nth-child(2) > span {
+  animation-delay: 2.25s;
+}
+
+@keyframes hero-poster-rise {
+  from { opacity: 0; transform: translateY(115%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-product-art {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-splash-art {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  width: 670px;
+  max-width: none;
+  height: auto;
+  animation: hero-splash-arrive 1.25s cubic-bezier(0.16, 1, 0.3, 1) 2.35s both;
+}
+
+@keyframes hero-splash-arrive {
+  from { opacity: 0; transform: translate(-50%, 70px) scale(0.7) rotate(-5deg); }
+  to { opacity: 1; transform: translate(-50%, 0) scale(1) rotate(0); }
+}
+
+.hero-cup-arrive {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  width: 305px;
+  animation: hero-cup-arrive 1.3s cubic-bezier(0.16, 1, 0.3, 1) 2.45s both;
+}
+
+@keyframes hero-cup-arrive {
+  from { opacity: 0; transform: translate(-50%, 110px) scale(0.82); }
+  to { opacity: 1; transform: translate(-50%, 0) scale(1); }
+}
+
+.hero-cup-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 22px 24px rgb(74 42 28 / 0.22));
+  animation: hero-cup-float 4s ease-in-out 3.8s infinite alternate;
+}
+
+@keyframes hero-cup-float {
+  from { transform: translateY(0) rotate(-1deg); }
+  to { transform: translateY(-13px) rotate(1deg); }
+}
+
+.hero-bottom {
+  position: absolute;
+  right: 16px;
+  bottom: 32px;
+  left: 16px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  animation: hero-bottom-in 0.8s ease-out 2.9s both;
+}
+
+@keyframes hero-bottom-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-main-link,
+.hero-secondary-link {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: transform 0.25s ease;
+}
+
+.hero-main-link {
+  gap: 18px;
   background: var(--brown);
-  box-shadow: 0 30px 60px rgb(43 23 16 / 0.3);
-  outline: 1px solid rgb(43 23 16 / 0.08);
+  color: var(--cream);
+  font-family: var(--font-hero), Georgia, serif;
+  font-size: 16px;
+  letter-spacing: 0;
+  word-spacing: 0.14em;
+}
+
+.hero-main-link:hover,
+.hero-secondary-link:hover {
+  transform: translateY(-3px);
+}
+
+.hero-main-link span {
+  font-size: 19px;
+  line-height: 1;
+}
+
+.hero-secondary-link {
+  border: 1px solid rgb(74 42 28 / 0.35);
+  color: var(--brown);
+}
+
+.hero-main-link:focus-visible,
+.hero-secondary-link:focus-visible {
+  outline: 2px solid var(--brown);
+  outline-offset: 3px;
+}
+
+@media (min-width: 640px) {
+  .hero-center { min-height: 790px; }
+  .hero-poster-title { padding-top: 58px; }
+  .hero-splash-art { top: 32%; width: min(105vw, 1100px); }
+  .hero-cup-arrive { top: 21%; width: clamp(350px, 38vw, 480px); }
+  .hero-bottom { flex-direction: row; justify-content: center; }
+}
+
+@media (min-width: 1024px) {
+  .hero-center { min-height: 760px; }
+  .hero-poster-title { padding-top: 56px; }
+  .hero-splash-art { top: 28%; }
+  .hero-cup-arrive { top: 16%; width: 460px; }
+  .hero-bottom { bottom: 24px; }
 }
 
 /* Header gains a backdrop once the page scrolls */
@@ -453,7 +621,17 @@ body.is-loading {
     transform: none;
     transition: none;
   }
-  .hero-media video {
+  .hero-title-line > span,
+  .hero-cup-art,
+  .hero-bottom {
     animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .hero-splash-art,
+  .hero-cup-arrive {
+    animation: none;
+    opacity: 1;
+    transform: translateX(-50%);
   }
 }

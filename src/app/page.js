@@ -3,6 +3,7 @@ import Loader from "@/components/Loader";
 import Reveal from "@/components/Reveal";
 import Menu from "@/components/Menu";
 import Header from "@/components/Header";
+import Hero from "@/components/Hero";
 
 
 const halls = [
@@ -70,45 +71,7 @@ export default function Home() {
       <Header />
 
       <main id="top" className="flex-1">
-        {/* Hero: one giant headline, the pour video as a tall pill behind it */}
-        <section
-          aria-labelledby="hero-title"
-          className="relative isolate flex min-h-screen flex-col items-center justify-center overflow-hidden bg-cream px-5 pt-28 pb-16 text-center sm:px-8"
-        >
-          <div className="relative w-full max-w-7xl">
-            <h1
-              id="hero-title"
-              className="hero-in hero-in-delay-1 hero-title relative z-10 font-display uppercase"
-            >
-              <span className="block">Sip &amp;</span>
-              <span className="block italic">Celebrate</span>
-            </h1>
-
-            <div className="hero-in hero-in-delay-2 hero-media" aria-hidden="true">
-              <video
-                className="h-full w-full object-cover"
-                src="/hero.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-              />
-            </div>
-          </div>
-
-          <p className="hero-in hero-in-delay-2 relative mt-14 max-w-md text-lg leading-8 text-brown-soft sm:mt-10">
-            Imported beans, poured with care. Two private halls for up to 200 guests.
-          </p>
-          <div className="hero-in hero-in-delay-3 relative mt-7">
-            <a
-              href="#halls"
-              className="inline-block rounded-full bg-brown px-8 py-4 text-[13px] font-semibold uppercase tracking-[0.2em] text-cream transition-all duration-300 hover:-translate-y-0.5 hover:bg-espresso hover:shadow-xl hover:shadow-brown/25"
-            >
-              Book a hall
-            </a>
-          </div>
-        </section>
+        <Hero />
 
         {/* About */}
         <section id="about" aria-labelledby="about-title" className="bg-cream-soft px-5 py-24 sm:px-8">
@@ -126,14 +89,14 @@ export default function Home() {
                 private halls host meetings, events and intimate celebrations
                 such as engagements, for groups of 150 to 200.
               </p>
-              <div className="mt-8 grid grid-cols-3 gap-6">
+              <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-6">
                 {[
                   ["2", "Private halls"],
                   ["200", "Guest capacity"],
                   ["7", "Days a week"],
                 ].map(([n, label]) => (
                   <div key={label}>
-                    <p className="font-display text-4xl text-brown">{n}</p>
+                    <p className="font-display text-3xl text-brown sm:text-4xl">{n}</p>
                     <p className="mt-1 text-sm text-brown-soft">
                       {label}
                     </p>
@@ -201,7 +164,7 @@ export default function Home() {
 
         {/* Contact */}
         <section id="contact" aria-labelledby="contact-title" className="bg-cream-soft px-5 py-24 sm:px-8">
-          <div className="mx-auto max-w-7xl rounded-[2.5rem] bg-espresso px-8 py-16 text-cream sm:px-14">
+          <div className="mx-auto max-w-7xl rounded-[2rem] bg-espresso px-6 py-12 text-cream sm:rounded-[2.5rem] sm:px-14 sm:py-16">
             <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
               <Reveal>
                 <h2 id="contact-title" className="font-display text-4xl leading-tight sm:text-5xl">
@@ -215,13 +178,13 @@ export default function Home() {
               <Reveal delay={0.15} className="space-y-4 lg:text-right">
                 <a
                   href="tel:+10000000000"
-                  className="block font-display text-2xl transition-colors hover:text-caramel"
+                  className="block font-display text-xl transition-colors hover:text-caramel sm:text-2xl"
                 >
                   +1 (000) 000-0000
                 </a>
                 <a
                   href="mailto:hello@mirevacafe.com"
-                  className="block text-cream/80 transition-colors hover:text-caramel"
+                  className="block break-words text-cream/80 transition-colors hover:text-caramel"
                 >
                   hello@mirevacafe.com
                 </a>

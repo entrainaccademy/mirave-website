@@ -83,8 +83,8 @@ export default function Menu({ sections }) {
                   onPointerLeave={() => setActive(null)}
                 >
                   <div className="flex items-start gap-4">
-                    {/* Phone: item photo. Desktop: line icon (photo follows the cursor instead). */}
-                    <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-cream-deep/60 md:hidden">
+                    {/* Keep item photos visible on touch-sized layouts. */}
+                    <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-cream-deep/60 lg:hidden">
                       <Image
                         src={item.image}
                         alt={item.name}

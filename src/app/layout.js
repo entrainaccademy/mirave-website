@@ -1,4 +1,4 @@
-import { Inter, Playfair_Display } from "next/font/google";
+import { Fraunces, Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,12 +11,19 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
 });
 
+const fraunces = Fraunces({
+  variable: "--font-hero",
+  subsets: ["latin"],
+  weight: "variable",
+  axes: ["SOFT", "WONK", "opsz"],
+});
+
 const description =
-  "Mireva Café is a premium café serving imported, high-quality coffee and food, with two private halls for meetings, events, engagements and intimate parties of 150 to 200 guests.";
+  "Discover premium coffee and food at Mireva Café, plus two private event halls for meetings, engagements and celebrations of up to 200 guests.";
 
 export const metadata = {
   title: {
-    default: "Mireva Café | Premium Café & Private Event Halls",
+    default: "Mireva Café | Premium Coffee & Private Event Halls",
     template: "%s | Mireva Café",
   },
   description,
@@ -32,13 +39,13 @@ export const metadata = {
   openGraph: {
     type: "website",
     siteName: "Mireva Café",
-    title: "Mireva Café | Premium Café & Private Event Halls",
+    title: "Mireva Café | Premium Coffee & Private Event Halls",
     description,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mireva Café | Premium Café & Private Event Halls",
+    title: "Mireva Café | Premium Coffee & Private Event Halls",
     description,
   },
   robots: { index: true, follow: true },
@@ -54,7 +61,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable} h-full antialiased`}
+      className={`${inter.variable} ${playfair.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-espresso">
         {children}
