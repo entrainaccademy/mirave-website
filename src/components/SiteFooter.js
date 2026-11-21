@@ -8,7 +8,7 @@ export default function SiteFooter() {
       <div className="site-footer-inner">
         <Reveal className="site-footer-opening">
           <p>Where every sip tells a story of pure taste.</p>
-          <span aria-hidden="true">✳</span>
+          {/* <span aria-hidden="true">✳</span> */}
         </Reveal>
 
         <Reveal delay={0.1} className="site-footer-panel">
