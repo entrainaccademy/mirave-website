@@ -25,7 +25,7 @@ export default function SiteFooter() {
               <div>
                 <h3>Explore</h3>
                 <Link href="/about">Our story</Link>
-                <Link href="/#menu">Menu</Link>
+                <Link href="/menu">Menu</Link>
                 <Link href="/halls">Private halls</Link>
               </div>
               <div>
@@ -38,6 +38,14 @@ export default function SiteFooter() {
                 <h3>Gather</h3>
                 <Link href="/halls">Explore the halls</Link>
                 <Link href="/#contact">Plan a gathering</Link>
+                <div className="site-footer-socials" aria-label="Social profiles coming soon">
+                  <span role="img" aria-label="Instagram profile coming soon" title="Instagram profile coming soon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle className="site-footer-social-dot" cx="17.5" cy="6.5" r="1" /></svg>
+                  </span>
+                  <span role="img" aria-label="Facebook profile coming soon" title="Facebook profile coming soon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5H18V3.9a22 22 0 0 0-2.6-.2c-2.6 0-4.4 1.6-4.4 4.5V10H8v3h3v8" /></svg>
+                  </span>
+                </div>
               </div>
             </nav>
           </div>

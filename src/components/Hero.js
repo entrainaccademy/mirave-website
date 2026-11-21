@@ -6,7 +6,7 @@ export default function Hero() {
       <div className="hero-editorial-inner">
         <div className="hero-editorial-copy">
           <h1 id="hero-title">Meet for Coffee.<br />Stay for the Moment.</h1>
-          <a href="#menu" className="hero-editorial-button">View the menu <span aria-hidden="true">↗</span></a>
+          <a href="/menu" className="hero-editorial-button">View the menu <span aria-hidden="true">↗</span></a>
         </div>
         <div className="hero-editorial-gallery" aria-label="Inside the café">
           <div className="hero-editorial-main">

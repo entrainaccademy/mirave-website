@@ -61,7 +61,7 @@ export default function AboutPage() {
                 in your cup or on your plate. It is a place to settle in, share a
                 meal, and spend time with the people who matter to you.
               </p>
-              <Link href="/#menu">Explore the menu <span aria-hidden="true">↗</span></Link>
+              <Link href="/menu">Explore the menu <span aria-hidden="true">↗</span></Link>
             </Reveal>
 
             <Reveal delay={0.2} className="about-editorial-details-card">
@@ -90,7 +90,6 @@ export default function AboutPage() {
         <section className="about-reasons" aria-labelledby="about-reasons-title">
           <div className="about-reasons-inner">
             <Reveal className="about-reasons-heading">
-              <p className="about-reasons-kicker">Life at Mireva</p>
               <h2 id="about-reasons-title">More to<br />the table.</h2>
               <p>Coffee, food, and room to spend time together. The simple things, done with care.</p>
             </Reveal>
@@ -120,7 +119,6 @@ export default function AboutPage() {
         <section className="about-faq" aria-labelledby="about-faq-title">
           <div className="about-faq-inner">
             <Reveal className="about-faq-intro">
-              <p className="about-reasons-kicker">Good to know</p>
               <h2 id="about-faq-title">Before you come by.</h2>
               <p>A few useful answers about the café and our private halls.</p>
             </Reveal>
@@ -131,15 +129,15 @@ export default function AboutPage() {
               </details>
               <details>
                 <summary>Can I come for food?</summary>
-                <p>Of course. Mireva serves food as well as drinks. <Link href="/#menu">See the menu</Link> for what is currently available.</p>
+                <p>Of course. Mireva serves food as well as drinks. <Link href="/menu">See the menu</Link> for what is currently available.</p>
               </details>
               <details>
                 <summary>Do you have space for events?</summary>
                 <p>Yes. We have two private halls for meetings, celebrations, and occasions such as engagements. <Link href="/halls">Explore the halls</Link>.</p>
               </details>
               <details>
-                <summary>How do I ask about a booking?</summary>
-                <p>Share your date, guest count, and event plans through our <Link href="/#contact">contact section</Link>. We can then help you with the details.</p>
+                <summary>Where can I see the private halls?</summary>
+                <p><Link href="/halls">Explore the halls</Link> to see the spaces. Booking contact details will be added once confirmed.</p>
               </details>
             </div>
           </div>
