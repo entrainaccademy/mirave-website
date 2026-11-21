@@ -1,4 +1,4 @@
-import { Fraunces, Inter, Playfair_Display } from "next/font/google";
+import { Fraunces, Inter, Italiana, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -9,6 +9,12 @@ const inter = Inter({
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
+});
+
+const italiana = Italiana({
+  variable: "--font-about-display",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 const fraunces = Fraunces({
@@ -61,7 +67,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable} ${fraunces.variable} h-full antialiased`}
+      className={`${inter.variable} ${playfair.variable} ${italiana.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-espresso">
         {children}

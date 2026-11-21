@@ -2,43 +2,20 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section aria-labelledby="hero-title" className="hero-section px-4 pb-16 pt-24 sm:px-8 sm:pt-28 lg:pb-24 lg:pt-32">
-      <div className="hero-center mx-auto max-w-7xl">
-        <h1 id="hero-title" className="hero-poster-title">
-          <span className="hero-title-line"><span><span className="hero-word">Premium</span>{" "}<span className="hero-word">coffee</span></span></span>
-          {" "}
-          <span className="hero-title-line"><span><span className="hero-word">Private</span>{" "}<span className="hero-word">events</span></span></span>
-        </h1>
-
-        <div className="hero-product-art">
-          <Image
-            className="hero-splash-art"
-            src="/hero-coffee-splash.avif"
-            alt=""
-            width={2048}
-            height={856}
-            sizes="(max-width: 640px) 640px, 1100px"
-            priority
-          />
-          <div className="hero-cup-arrive">
-            <Image
-              className="hero-cup-art"
-              src="/hero-iced-coffee.png"
-              alt="Iced coffee with milk and coffee splashing over ice"
-              width={1137}
-              height={1383}
-              sizes="(max-width: 640px) 280px, 470px"
-              priority
-            />
-          </div>
+    <section aria-labelledby="hero-title" className="hero-editorial">
+      <div className="hero-editorial-inner">
+        <div className="hero-editorial-copy">
+          <h1 id="hero-title">Meet for Coffee.<br />Stay for the Moment.</h1>
+          <a href="#menu" className="hero-editorial-button">View the menu <span aria-hidden="true">↗</span></a>
         </div>
-
-        <div className="hero-bottom">
-          <a href="#menu" className="hero-main-link">
-            Explore our coffee menu
-            <span aria-hidden="true">↗</span>
-          </a>
-          <a href="#halls" className="hero-secondary-link">Explore our event halls</a>
+        <div className="hero-editorial-gallery" aria-label="Inside the café">
+          <div className="hero-editorial-main">
+            <Image src="/cafe3.webp" alt="A quiet café seating nook" fill priority unoptimized sizes="(max-width: 700px) 62vw, 34vw" />
+          </div>
+          <div className="hero-editorial-details">
+            <div><Image src="/cafe1.webp" alt="The warm café counter" fill unoptimized sizes="(max-width: 700px) 38vw, 20vw" /></div>
+            <div><Image src="/cafe2.webp" alt="Coffee bar and espresso machine" fill unoptimized sizes="(max-width: 700px) 38vw, 20vw" /></div>
+          </div>
         </div>
       </div>
     </section>

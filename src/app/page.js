@@ -1,27 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
 import Loader from "@/components/Loader";
 import Reveal from "@/components/Reveal";
 import Menu from "@/components/Menu";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import SignatureFood from "@/components/SignatureFood";
+import HallsShowcase from "@/components/HallsShowcase";
+import ReviewsShowcase from "@/components/ReviewsShowcase";
+import SiteFooter from "@/components/SiteFooter";
 
-
-const halls = [
-  {
-    name: "The Meeting Hall",
-    capacity: "Meetings, workshops and intimate parties",
-    blurb:
-      "A quiet, warmly lit space for board meetings, workshops and small celebrations. Presentation screen, fast Wi-Fi and a dedicated coffee service.",
-    tags: ["Meetings", "Workshops", "Intimate parties"],
-  },
-  {
-    name: "The Grand Hall",
-    capacity: "Events and celebrations for 150 to 200 guests",
-    blurb:
-      "Our larger hall, made for engagements, family gatherings and company events. Flexible seating, sound system and custom catering menus.",
-    tags: ["Engagements", "Events", "Celebrations"],
-  },
-];
 
 const menuSections = [
   {
@@ -50,7 +38,6 @@ const jsonLd = {
   description:
     "Premium café serving imported, high-quality coffee and food, with two private halls for meetings, events and intimate celebrations of 150 to 200 guests.",
   servesCuisine: ["Coffee", "Café"],
-  openingHours: "Mo-Su 07:00-22:00",
   maximumAttendeeCapacity: 200,
   amenityFeature: [
     { "@type": "LocationFeatureSpecification", name: "Private event halls", value: true },
@@ -74,79 +61,51 @@ export default function Home() {
         <Hero />
 
         {/* About */}
-        <section id="about" aria-labelledby="about-title" className="bg-cream-soft px-5 py-24 sm:px-8">
-          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
-            <Reveal>
-              <h2 id="about-title" className="font-display text-4xl leading-tight text-espresso sm:text-5xl">
-                A premium touch, from the first sip to the last toast.
-              </h2>
-            </Reveal>
-            <Reveal delay={0.15}>
-              <p className="text-lg leading-8 text-brown-soft">
-                We opened Mireva to bring something better to the table: imported,
-                high-quality products that are hard to find locally, prepared by
-                people who care about every detail. Alongside the café, our two
-                private halls host meetings, events and intimate celebrations
-                such as engagements, for groups of 150 to 200.
+        <section id="about" aria-labelledby="about-title" className="about-showcase">
+          <div className="about-showcase-panel">
+            <Reveal className="about-showcase-intro">
+              <p className="about-showcase-eyebrow">The Mireva story</p>
+              <h2 id="about-title">A café made for gathering.</h2>
+              <p className="about-showcase-description">
+                At Mireva, carefully chosen coffee and a warm welcome make room
+                for the moments that matter. Find a quiet corner, catch up with
+                friends, and take your time.
               </p>
-              <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-6">
+              <Link href="/about" className="about-showcase-link">
+                About Mireva <span aria-hidden="true">↗</span>
+              </Link>
+            </Reveal>
+            <Reveal delay={0.12} className="about-showcase-visual">
+              <Image
+                src="/coffee-dipped-pastry.png"
+                alt=""
+                width={1024}
+                height={1536}
+                sizes="(max-width: 900px) 85vw, 45vw"
+              />
+            </Reveal>
+            <Reveal delay={0.15} className="about-showcase-card">
+              <div>
+                <p className="about-showcase-card-label">More than coffee</p>
+                <h3>Make room for your moments.</h3>
+                <p className="about-showcase-card-copy">
+                  Alongside the café, our two private halls welcome meetings,
+                  events, and celebrations for groups of 150 to 200.
+                </p>
+              </div>
+              <div className="about-showcase-stats">
                 {[
                   ["2", "Private halls"],
                   ["200", "Guest capacity"],
                   ["7", "Days a week"],
                 ].map(([n, label]) => (
                   <div key={label}>
-                    <p className="font-display text-3xl text-brown sm:text-4xl">{n}</p>
-                    <p className="mt-1 text-sm text-brown-soft">
-                      {label}
-                    </p>
+                    <p>{n}</p>
+                    <span>{label}</span>
                   </div>
                 ))}
               </div>
             </Reveal>
-          </div>
-        </section>
-
-        {/* Halls */}
-        <section id="halls" aria-labelledby="halls-title" className="bg-brown px-5 py-24 text-cream sm:px-8">
-          <div className="mx-auto max-w-7xl">
-            <Reveal className="mb-14 max-w-2xl">
-              <h2 id="halls-title" className="font-display text-4xl leading-tight sm:text-5xl">
-                Two halls, made for your moments.
-              </h2>
-            </Reveal>
-            <div className="grid gap-8 md:grid-cols-2">
-              {halls.map((hall, i) => (
-                <Reveal
-                  key={hall.name}
-                  delay={i * 0.15}
-                  className="group rounded-3xl border border-cream/15 bg-espresso/40 p-8 transition-all duration-500 hover:-translate-y-1 hover:border-caramel/60 hover:bg-espresso/60"
-                >
-                  <h3 className="font-display text-3xl">{hall.name}</h3>
-                  <p className="mt-2 text-cream/70">{hall.capacity}</p>
-                  <p className="mt-4 leading-7 text-cream/75">{hall.blurb}</p>
-                  <ul className="mt-6 flex flex-wrap gap-2">
-                    {hall.tags.map((tag) => (
-                      <li
-                        key={tag}
-                        className="rounded-full border border-cream/20 px-3 py-1 text-sm text-cream/80"
-                      >
-                        {tag}
-                      </li>
-                    ))}
-                  </ul>
-                  <a
-                    href="#contact"
-                    className="mt-8 inline-flex items-center gap-2 text-base font-medium text-cream transition-colors group-hover:text-caramel"
-                  >
-                    Enquire
-                    <span className="transition-transform duration-300 group-hover:translate-x-1">
-                      →
-                    </span>
-                  </a>
-                </Reveal>
-              ))}
-            </div>
           </div>
         </section>
 
@@ -162,51 +121,79 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Contact */}
-        <section id="contact" aria-labelledby="contact-title" className="bg-cream-soft px-5 py-24 sm:px-8">
-          <div className="mx-auto max-w-7xl rounded-[2rem] bg-espresso px-6 py-12 text-cream sm:rounded-[2.5rem] sm:px-14 sm:py-16">
-            <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+        <SignatureFood />
+
+        {/* Café atmosphere */}
+        <section id="inside" aria-labelledby="inside-title" className="inside-mireva">
+          <div className="inside-mireva-inner">
+            <div className="inside-mireva-heading">
               <Reveal>
-                <h2 id="contact-title" className="font-display text-4xl leading-tight sm:text-5xl">
-                  Plan your meeting or celebration with us.
-                </h2>
-                <p className="mt-6 max-w-xl leading-8 text-cream/75">
-                  Tell us the date, the number of guests and the occasion. We&apos;ll
-                  take care of the rest, from the coffee to the cake.
+                <p className="inside-mireva-kicker">Inside Mireva</p>
+                <h2 id="inside-title">Take a seat.<br />Take your time.</h2>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <p className="inside-mireva-copy">
+                  A warm space for coffee, conversation, and a little time to yourself.
                 </p>
               </Reveal>
-              <Reveal delay={0.15} className="space-y-4 lg:text-right">
-                <a
-                  href="tel:+10000000000"
-                  className="block font-display text-xl transition-colors hover:text-caramel sm:text-2xl"
-                >
-                  +1 (000) 000-0000
-                </a>
-                <a
-                  href="mailto:hello@mirevacafe.com"
-                  className="block break-words text-cream/80 transition-colors hover:text-caramel"
-                >
-                  hello@mirevacafe.com
-                </a>
-                <p className="text-cream/60">Open daily · 7:00 – 22:00</p>
-              </Reveal>
             </div>
+            <div className="inside-mireva-gallery">
+              <Reveal className="inside-mireva-photo inside-mireva-photo-main">
+                <Image
+                  src="/cafeimg.jpg"
+                  alt="Sunlit café seating with guests gathered around tables"
+                  fill
+                  sizes="(max-width: 700px) 100vw, 56vw"
+                />
+              </Reveal>
+              <div className="inside-mireva-photo-stack">
+                <Reveal delay={0.1} className="inside-mireva-photo inside-mireva-photo-corner">
+                  <Image
+                    src="/cafesideimg.jpg"
+                    alt="A warmly lit corner table beneath a pendant light"
+                    fill
+                    sizes="(max-width: 700px) 50vw, 36vw"
+                  />
+                </Reveal>
+                <Reveal delay={0.2} className="inside-mireva-photo inside-mireva-photo-counter">
+                  <Image
+                    src="/cafeimg2.jpg"
+                    alt="Coffee counter with pastries and baristas at work"
+                    fill
+                    sizes="(max-width: 700px) 50vw, 36vw"
+                  />
+                </Reveal>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <ReviewsShowcase />
+
+        <HallsShowcase />
+
+        {/* Contact */}
+        <section id="contact" aria-labelledby="contact-title" className="contact-editorial">
+          <div className="contact-editorial-inner">
+            <Reveal className="contact-editorial-heading">
+              <p className="contact-editorial-label">Gather at Mireva</p>
+              <h2 id="contact-title">Plan your meeting<br />or <em>celebration</em><br />with us.</h2>
+            </Reveal>
+            <Reveal delay={0.14} className="contact-editorial-details">
+              <p>Tell us the date, the number of guests and the occasion. We&apos;ll take care of the rest, from the coffee to the cake.</p>
+              <Link className="contact-editorial-action" href="/halls">
+                Explore our spaces <span aria-hidden="true">↗</span>
+              </Link>
+              <div className="contact-editorial-meta">
+                <span>Two private halls</span>
+                <span>Meetings · celebrations · gatherings</span>
+              </div>
+            </Reveal>
           </div>
         </section>
       </main>
 
-      <footer className="bg-cream-soft px-5 pb-10 sm:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 border-t border-brown/15 pt-8 text-sm text-brown-soft sm:flex-row">
-          <Image
-            src="/logo-brown.png"
-            alt="Mireva Café"
-            width={1752}
-            height={897}
-            className="h-8 w-auto"
-          />
-          <p>© 2025 Mireva Café</p>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }
