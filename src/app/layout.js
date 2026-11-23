@@ -30,7 +30,7 @@ const description =
 
 export const metadata = {
   title: {
-    default: "Mireva Café | Premium Coffee & Private Event Halls",
+    default: "Mireva Café | Premium Cafe & Private Event Halls",
     template: "%s | Mireva Café",
   },
   description,
