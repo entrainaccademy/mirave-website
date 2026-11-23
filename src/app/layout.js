@@ -1,5 +1,6 @@
 import { Fraunces, Inter, Italiana, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import ContactActions from "@/components/ContactActions";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -71,6 +72,7 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col bg-cream text-espresso">
         {children}
+        <ContactActions />
       </body>
     </html>
   );

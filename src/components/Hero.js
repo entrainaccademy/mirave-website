@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { partyHallWhatsAppUrl } from "@/lib/booking";
 
 export default function Hero() {
   return (
@@ -6,7 +7,10 @@ export default function Hero() {
       <div className="hero-editorial-inner">
         <div className="hero-editorial-copy">
           <h1 id="hero-title">Meet for Coffee.<br />Stay for the Moment.</h1>
-          <a href="/menu" className="hero-editorial-button">View the menu <span aria-hidden="true">↗</span></a>
+          <div className="hero-editorial-actions">
+            <a href="/menu" className="hero-editorial-button">View the menu</a>
+            <a href={partyHallWhatsAppUrl} target="_blank" rel="noopener noreferrer" className="hero-editorial-button">Book a hall</a>
+          </div>
         </div>
         <div className="hero-editorial-gallery" aria-label="Inside the café">
           <div className="hero-editorial-main">

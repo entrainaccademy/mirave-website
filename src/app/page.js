@@ -9,6 +9,7 @@ import SignatureFood from "@/components/SignatureFood";
 import HallsShowcase from "@/components/HallsShowcase";
 import ReviewsShowcase from "@/components/ReviewsShowcase";
 import SiteFooter from "@/components/SiteFooter";
+import { partyHallWhatsAppUrl } from "@/lib/booking";
 
 
 const menuSections = [
@@ -176,7 +177,6 @@ export default function Home() {
         <section id="contact" aria-labelledby="contact-title" className="contact-editorial">
           <div className="contact-editorial-inner">
             <Reveal className="contact-editorial-intro">
-              <span className="contact-editorial-label">The next occasion</span>
               <h2 id="contact-title">Make room for <em>your moment.</em></h2>
             </Reveal>
             <div className="contact-editorial-story">
@@ -193,9 +193,9 @@ export default function Home() {
                 <p className="contact-editorial-small">At Mireva</p>
                 <h3>Plan your meeting or celebration with us.</h3>
                 <p>Tell us the date, the number of guests and the occasion. We&apos;ll take care of the rest, from the coffee to the cake.</p>
-                <Link className="contact-editorial-action" href="/halls">
-                  Explore the private halls <span aria-hidden="true">↗</span>
-                </Link>
+                <a className="contact-editorial-action" href={partyHallWhatsAppUrl} target="_blank" rel="noopener noreferrer">
+                  Book a party hall on WhatsApp <span aria-hidden="true">↗</span>
+                </a>
               </Reveal>
             </div>
           </div>

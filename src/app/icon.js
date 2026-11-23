@@ -6,7 +6,7 @@ export const size = { width: 192, height: 192 };
 export const contentType = "image/png";
 
 export default async function Icon() {
-  const logo = await readFile(join(process.cwd(), "public", "logo-cream.png"));
+  const logo = await readFile(join(process.cwd(), "public", "mireva logo png -new.png"));
   const logoSrc = `data:image/png;base64,${logo.toString("base64")}`;
 
   return new ImageResponse(
@@ -18,16 +18,12 @@ export default async function Icon() {
         height: "100%",
         overflow: "hidden",
         borderRadius: 38,
-        background: "#4a2a1c",
+        background: "#f5ecde",
       }}
     >
-      <img
-        src={logoSrc}
-        alt=""
-        width={634}
-        height={325}
-        style={{ position: "absolute", left: -22, top: -87 }}
-      />
+      <div style={{ display: "flex", position: "absolute", left: 61, top: 21, width: 70, height: 150, overflow: "hidden" }}>
+        <img src={logoSrc} alt="" width={242} height={209} style={{ position: "absolute", left: -89, top: 0 }} />
+      </div>
     </div>,
     size,
   );

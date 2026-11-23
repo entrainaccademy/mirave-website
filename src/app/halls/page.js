@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 import Header from "@/components/Header";
 import Reveal from "@/components/Reveal";
 import SiteFooter from "@/components/SiteFooter";
+import { partyHallWhatsAppUrl } from "@/lib/booking";
 
 export const metadata = {
   title: "Private Halls & Events | Mireva Café",
@@ -18,7 +18,6 @@ export default function HallsPage() {
         <section className="hall2-hero" aria-labelledby="hall2-title">
           <div className="hall2-hero-inner">
             <div className="hall2-hero-heading">
-              <p>Private halls at Mireva</p>
               <h1 id="hall2-title">Gather at <em>Mireva.</em></h1>
               <a href="#hall2-spaces">Explore the halls <span aria-hidden="true">↘</span></a>
             </div>
@@ -59,7 +58,7 @@ export default function HallsPage() {
               <p className="hall2-eyebrow">The banquet hall</p>
               <h2 id="hall2-banquet-title">For the whole<br /><em>room.</em></h2>
               <p>Bring everyone in for a milestone, engagement, presentation, or meeting. The hall can host groups of 150 to 200, with a warm setting that still feels personal.</p>
-              <Link href="/#contact">Enquire about the hall <span aria-hidden="true">↗</span></Link>
+              <a href={partyHallWhatsAppUrl} target="_blank" rel="noopener noreferrer">Enquire on WhatsApp <span aria-hidden="true">↗</span></a>
             </Reveal>
           </div>
         </section>
@@ -68,7 +67,7 @@ export default function HallsPage() {
           <Reveal className="hall2-vip-heading">
             <h2 id="hall2-vip-title">The table<br />is <em>yours.</em></h2>
             <p>Bring your people around one table. Talk, make plans, share food, and take your time in a room set apart from the café.</p>
-            <Link href="/#contact">Enquire about the VIP room <span aria-hidden="true">↗</span></Link>
+            <a href={partyHallWhatsAppUrl} target="_blank" rel="noopener noreferrer">Enquire on WhatsApp <span aria-hidden="true">↗</span></a>
           </Reveal>
           <div className="hall2-vip-gallery">
             <Reveal className="hall2-vip-main-photo">
@@ -85,7 +84,7 @@ export default function HallsPage() {
             <p className="hall2-eyebrow">Plan a gathering</p>
             <h2 id="hall2-enquire-title">Tell us what<br /><em>you have in mind.</em></h2>
             <p>Share your date, the occasion, and your expected guest count. We&apos;ll help you take it from there.</p>
-            <Link href="/#contact">Get in touch <span aria-hidden="true">↗</span></Link>
+            <a href={partyHallWhatsAppUrl} target="_blank" rel="noopener noreferrer">Book a hall on WhatsApp <span aria-hidden="true">↗</span></a>
           </Reveal>
         </section>
       </main>

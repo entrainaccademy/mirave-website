@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Reveal from "@/components/Reveal";
 import SiteFooter from "@/components/SiteFooter";
+import { partyHallWhatsAppUrl } from "@/lib/booking";
 
 export const metadata = {
   title: "About Mireva Café",
@@ -45,7 +46,7 @@ export default function AboutPage() {
             </Reveal>
 
             <Reveal delay={0.1} className="about-editorial-story-card">
-              <p className="about-editorial-kicker">✳ The Mireva story</p>
+              <p className="about-editorial-kicker"> The Mireva story</p>
               <h2 id="about-story-title">Good coffee.<br />Good company.</h2>
               <p className="about-editorial-story-lead">
                 Mireva began with a simple idea: bring something better to the table.
@@ -120,7 +121,6 @@ export default function AboutPage() {
           <div className="about-faq-inner">
             <Reveal className="about-faq-intro">
               <h2 id="about-faq-title">Before you come by.</h2>
-              <p>A few useful answers about the café and our private halls.</p>
             </Reveal>
             <div className="about-faq-list">
               <details>
@@ -137,7 +137,7 @@ export default function AboutPage() {
               </details>
               <details>
                 <summary>Where can I see the private halls?</summary>
-                <p><Link href="/halls">Explore the halls</Link> to see the spaces. Booking contact details will be added once confirmed.</p>
+                <p><Link href="/halls">Explore the halls</Link> to see the spaces, then <a href={partyHallWhatsAppUrl} target="_blank" rel="noopener noreferrer">message us on WhatsApp</a> about a booking.</p>
               </details>
             </div>
           </div>

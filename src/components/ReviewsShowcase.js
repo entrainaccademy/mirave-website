@@ -102,9 +102,9 @@ export default function ReviewsShowcase() {
               <button type="button" aria-label="Next review" onClick={() => goTo(active + 1)}>→</button>
             </div>
           </div>
-          <p className="reviews-showcase-disclaimer">
+          {/* <p className="reviews-showcase-disclaimer">
             Sample wording for this website preview. Replace with verified guest feedback.
-          </p>
+          </p> */}
         </div>
       </div>
     </section>

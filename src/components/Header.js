@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
+import BrandLogo from "@/components/BrandLogo";
+import { partyHallWhatsAppUrl } from "@/lib/booking";
 
 const navLinks = [
   { label: "About", href: "/about" },
@@ -17,15 +18,8 @@ export default function Header() {
   return (
 <header className="site-header is-scrolled fixed inset-x-0 top-0 z-40">
   <nav aria-label="Main navigation" className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8 sm:py-5">
-    <Link href="/" aria-label="Mireva Café home">
-      <Image
-        src="/logo-brown.png"
-        alt="Mireva Café"
-        width={1752}
-        height={897}
-        className="h-9 w-auto sm:h-12"
-        priority
-      />
+    <Link href="/" className="header-logo" style={{ width: "clamp(45px, 4vw, 50px)" }} aria-label="Mireva Café home">
+      <BrandLogo variant="latest" priority />
     </Link>
     <ul className="hidden items-center gap-8 text-[13px] font-medium uppercase tracking-[0.22em] md:flex">
       {navLinks.map((link) => (
@@ -40,9 +34,9 @@ export default function Header() {
         </li>
       ))}
     </ul>
-    <Link href="/#contact" className="header-reserve hidden rounded-full px-5 py-2.5 text-[12px] font-semibold uppercase tracking-[0.2em] transition-colors md:inline-flex">
-      Reserve
-    </Link>
+    <a href={partyHallWhatsAppUrl} target="_blank" rel="noopener noreferrer" className="header-reserve hidden rounded-full px-5 py-2.5 text-[12px] font-semibold uppercase tracking-[0.2em] transition-colors md:inline-flex">
+      Book a hall
+    </a>
     <button
       type="button"
       className="header-menu-button inline-flex min-h-11 items-center gap-2 rounded-full border px-4 text-xs font-semibold uppercase tracking-[0.12em] md:hidden"
@@ -64,7 +58,7 @@ export default function Header() {
             </Link>
           </li>
         ))}
-        <li><Link href="/#contact" onClick={() => setMenuOpen(false)} className="mt-4 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-brown px-5 text-xs font-semibold uppercase tracking-[0.16em] text-cream">Reserve a space</Link></li>
+        <li><a href={partyHallWhatsAppUrl} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} className="mt-4 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-brown px-5 text-xs font-semibold uppercase tracking-[0.16em] text-cream">Book a hall on WhatsApp</a></li>
       </ul>
     </div>
   )}

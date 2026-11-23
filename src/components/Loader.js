@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import BrandLogo from "@/components/BrandLogo";
 
 const LOADER_TOTAL_MS = 2600;
 
@@ -50,14 +51,7 @@ export default function Loader() {
       </div>
 
       <div className="loader-content">
-        <Image
-          className="loader-logo"
-          src="/logo-cream.png"
-          alt=""
-          width={1752}
-          height={897}
-          priority
-        />
+        <BrandLogo className="loader-logo" priority />
         <div className="loader-track">
           <div className="loader-fill" />
         </div>
